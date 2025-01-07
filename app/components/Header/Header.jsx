@@ -1,10 +1,8 @@
-"use client"
-import { usePathname } from 'next/navigation'
 import Link from "next/link";
 import Image from 'next/image';
+import NavLink from "../NavLink";
 
 const Header = () => {
-    const pathname = usePathname();
 
     return <header className='py-3 z-50 bg-white sticky top-0'>
         <div className="container flex justify-between items-center gap-12">
@@ -31,34 +29,10 @@ const Header = () => {
                 </div>
                 <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 h-full p-4 xl:p-0 shrink">
                     <nav className='flex flex-col xl:flex-row xl:items-center xl:gap-6 h-full overflow-y-auto xl:overflow-visible shrink'>
-                        <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
-                            <Image src='/assets/images/user.svg' width='24' height='24' alt="user" className='xl:hidden' />
-                            <span className="grow">
-                                الرئيسية
-                            </span>
-                            <Image src='/assets/images/chevron-left.svg' width='24' height='24' alt="chevronleft" className='xl:hidden' />
-                        </Link>
-                        <Link href="/explore-teacher" className={`nav-link ${pathname === '/explore-teacher' ? 'active' : ''}`}>
-                            <Image src='/assets/images/user.svg' width='24' height='24' alt="user" className='xl:hidden' />
-                            <span className="grow">
-                                أستكشف المعلمين
-                            </span>
-                            <Image src='/assets/images/chevron-left.svg' width='24' height='24' alt="chevronleft" className='xl:hidden' />
-                        </Link>
-                        <Link href="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>
-                            <Image src='/assets/images/user.svg' width='24' height='24' alt="user" className='xl:hidden' />
-                            <span className="grow">
-                                من نحن
-                            </span>
-                            <Image src='/assets/images/chevron-left.svg' width='24' height='24' alt="chevronleft" className='xl:hidden' />
-                        </Link>
-                        <Link href="/support" className={`nav-link ${pathname === '/support' ? 'active' : ''}`}>
-                            <Image src='/assets/images/user.svg' width='24' height='24' alt="user" className='xl:hidden' />
-                            <span className="grow">
-                                الدعم الفني
-                            </span>
-                            <Image src='/assets/images/chevron-left.svg' width='24' height='24' alt="chevronleft" className='xl:hidden' />
-                        </Link>
+                        <NavLink label='الرئيسية' href='/' preImg='/assets/images/user.svg' lstImg='/assets/images/chevron-left.svg' />
+                        <NavLink label='أستكشف المعلمين' href='/explore-teacher' preImg='/assets/images/user.svg' lstImg='/assets/images/chevron-left.svg' />
+                        <NavLink label='من نحن' href='/about' preImg='/assets/images/user.svg' lstImg='/assets/images/chevron-left.svg' />
+                        <NavLink label='الدعم الفني' href='/support' preImg='/assets/images/user.svg' lstImg='/assets/images/chevron-left.svg' />
                     </nav>
 
                     <ul className='flex flex-col xl:flex-row xl:items-center gap-3'>
